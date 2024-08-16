@@ -1,0 +1,877 @@
+   1  clear
+    2  cd Adv_k8s_practice/aws-eks-devops-best-practices/01-deploy-sample-application
+    3  watch  kubectl get pods -n minikube-sample-namespace
+    4  clear
+    5  ls
+    6  cd Adv_k8s_practice
+    7  ls
+    8  cd aws-eks-devops-best-practices
+    9  ls
+   10  cd 01-deploy-sample-application
+   11  ls
+   12  clear
+   13  kubectl get deployment -n minikube-sample-namespace
+   14  ls
+   15  kubectl apply -f 01-deployment.yaml
+   16  kubectl get pods
+   17  kubectl config set-context --current --namespace=minikube-sample-namespace
+   18  clear
+   19  kubectl get pods
+   20  kubectl describe minikube-deployment-1
+   21  kubectl describe deployment minikube-deployment-1
+   22  kubectl port-forward svc/minikube-service -n minikube-sample-namespace 8081:80 --address 0.0.0.0 &
+   23  ls
+   24  kubectl apply -f 03-update-deployment.yaml
+   25  kubectl describe minikube-deployment-1
+   26  kubectl describe deployment minikube-deployment-1
+   27  kubectl port-forward svc/minikube-service -n minikube-sample-namespace 8081:80 --address 0.0.0.0 &
+   28  ls
+   29  kubectl apply -f 01-deployment.yaml
+   30  kubectl port-forward svc/minikube-service -n minikube-sample-namespace 8081:80 --address 0.0.0.0 &
+   31  kubectl get pods
+   32  kubectl describe deployment minikube-deployment-1
+   33  kubectl apply -f 03-update-deployment.yaml
+   34  kubectl get pods
+   35  kubectl describe deployment minikube-deployment-1
+   36  kubectl apply -f 01-deployment.yaml
+   37  clear
+   38  kubectl delete deployment minikube-deployment-1
+   39  kubectl get deployment
+   40  clear
+   41  sudo apt update
+   42  sudo apt install -y curl wget apt-transport-https
+   43  sudo apt install -y docker.io
+   44  sudo systemctl enable --now docker
+   45  sudo usermod -aG docker $USER && newgrp docker
+   46  docker ps
+   47  docker --version
+   48  New-Item -Path 'c:\' -Name 'minikube' -ItemType Directory -Force
+   49  Invoke-WebRequest -OutFile 'c:\minikube\minikube.exe' -Uri 'https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe' -UseBasicParsing
+   50  curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+   51  sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+   52  ls
+   53  clear
+   54  curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+   55  ls
+   56  chmod +x minikube
+   57  sudo mv minikube /usr/local/bin/
+   58  ls -l
+   59  cd /usr/local/bin/
+   60  ls -l
+   61  cd
+   62  minikube
+   63  minikube version
+   64  clear
+   65  curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+   66  chmod +x kubectl
+   67  sudo mv kubectl /usr/local/bin/
+   68  kubectl version
+   69  minikube start --driver=docker
+   70  minikube start --driver=docker --vm=true
+   71  minikube status
+   72  docker ps
+   73  docker exec -it 4fb6eff71320 bash
+   74  kubectl get nodes
+   75  clear
+   76  Mkdir Adv_k8s_practice
+   77  mkdir Adv_k8s_practice
+   78  ls
+   79  cd Adv_k8s_practice
+   80  clear
+   81  git clone https://github.com/LondheShubham153/aws-eks-devops-best-practices.git
+   82  ls
+   83  cd aws-eks-devops-best-practices
+   84  clear
+   85  ls
+   86  cd 01-deploy-sample-application
+   87  ls
+   88  vim 01-deployment.yaml
+   89  create namespace minikubePracticeCluster
+   90  kubectl create namespace minikubePracticeCluster
+   91  kubectl create namespace minikube-practice_cluster
+   92  kubectl create namespace minikube-practice-cluster
+   93  vim namespace.yml
+   94  ls
+   95  kubectl namespace
+   96  kubectl get namespace
+   97  kubectl apply -f namespace.yml
+   98  kubectl get namespace
+   99  clear
+  100  ls
+  101  vim 01-deployment.yaml
+  102  kubectl get namespace
+  103  vim 01-deployment.yaml
+  104  ls
+  105  kubectl apply --validate=true --dry-run=client --filename=01-deployment.yaml
+  106  cat 01-deployment.yaml
+  107  vim 01-deployment.yaml
+  108  kubectl apply --validate=true --dry-run=client --filename=01-deployment.yaml
+  109  cat 01-deployment.yaml
+  110  vim 01-deployment.yaml
+  111  kubectl apply --validate=true --dry-run=client --filename=01-deployment.yaml
+  112  clear
+  113  ls
+  114  kubectl apply -f 01-deployment.yaml
+  115  kubectlt get pods -n minikube-sample-namespace
+  116  kubectl get pods -n minikube-sample-namespace
+  117  history
+  118  clear
+  119  kubectl get pods -n minikube-sample-namespace
+  120  ls
+  121  vim service.yml
+  122  rm service.yml
+  123  ls
+  124  vim 02-service.yaml
+  125  vim 01-deployment.yaml
+  126  kubectl apply --validate=true --dry-run=client --filename=01-deployment.yaml
+  127  kubectl apply -f 01-deployment.yaml
+  128  kubectl get pods -n minikube-sample-namespace
+  129  clear
+  130  ls
+  131  vim 02-service.yaml
+  132  kubectl apply --validation=true --dry-run=client --filename=02-service.yaml
+  133  kubectl apply --validate=true --dry-run=client --filename=02-service.yaml
+  134  kubectl apply -f 02-service.yaml
+  135  vim 02-service.yaml
+  136  kubectl apply -f 02-service.yaml
+  137  kubectl get all -n minikube-sample-namespace
+  138  ls
+  139  history
+  140  clear
+  141  kubectl get service -n minikube-sample-namespace
+  142  kubectl port-forword svc/minikube-service -n minikube-sample-namespace 8081:80 --address 0.0.0.0 &
+  143  kubectl port-forward svc/minikube-service -n minikube-sample-namespace 8081:80 --address 0.0.0.0 &
+  144  ls
+  145  cat 02-service.yaml
+  146  kubectl describe deployment minikube-deployment-1 -n minikube-sample-namespace
+  147  ls
+  148  vim 03-update-deployment.yaml
+  149  kubectl apply -f 03-update-deployment.yaml
+  150  kubectl get pods -n minikube-sample-namespace
+  151  vim 03-update-deployment.yaml
+  152  kubectl apply -f 03-update-deployment.yaml
+  153  kubectl get pods -n minikube-sample-namespace
+  154  kubectl delete pods eks-sample-deployment-68bd74f466-9zxdl eks-sample-deployment-68bd74f466-c8fwl eks-sample-deployment-68bd74f466-dnrbx eks-sample-deployment-68bd74f466-hchms eks-sample-deployment-68bd74f466-wmmvp
+  155  kubectl get pods -n minikube-sample-namespace
+  156  kubectl delete pods eks-sample-deployment-68bd74f466-9zxdl eks-sample-deployment-68bd74f466-c8fwl eks-sample-deployment-68bd74f466-dnrbx eks-sample-deployment-68bd74f466-hchms eks-sample-deployment-68bd74f466-wmmvp -n minikube-sample-namespace
+  157  kubectl get pods -n minikube-sample-namespace
+  158  docker get container
+  159  docker container ps
+  160  docker container ps -
+  161  docker container ps -a
+  162  kubectl get deployment
+  163  kubectl get deployment -n minikube-sample-namespace
+  164  kubectl delete deployment eks-sample-deployment
+  165  kubectl delete deployment eks-sample-deployment -n minikube-sample-namespace
+  166  kubectl get deployment -n minikube-sample-namespace
+  167  kubectl delete pods eks-sample-deployment-68bd74f466-9zxdl eks-sample-deployment-68bd74f466-c8fwl eks-sample-deployment-68bd74f466-dnrbx eks-sample-deployment-68bd74f466-hchms eks-sample-deployment-68bd74f466-wmmvp -n minikube-sample-namespace
+  168  kubelet get pods -n minikube-sample-namespace
+  169  kubectl get pods -n minikube-sample-namespace
+  170  clear
+  171  ls
+  172  kubectl apply -f 03-update-deployment.yaml
+  173  kubectl get pods -n minikube-sample-namespace
+  174  history
+  175  clear
+  176  ls
+  177  kubectl get deployment -n minikube-sample-namespace
+  178  kubectl delete deployment minikube-deployment-1 -n minikube-sample-namespace
+  179  kubectl get deployment -n minikube-sample-namespace
+  180  clear
+  181  ls
+  182  kubectl apply -f 01-deployment.yaml
+  183  ubelet get pods -n minikube-sample-namespace
+  184  kubelet get pods -n minikube-sample-namespace
+  185  kubectl get pods -n minikube-sample-namespace
+  186  ls
+  187  vim 03-update-deployment.yaml
+  188  kubectl apply -f 02-service.yaml
+  189  kubectl get all -n minikube-sample-namespace
+  190  kubectl port-forward svc/minikube-service -n minikube-sample-namespace 8081:80 --address 0.0.0.0 &
+  191  watch  kubectl get pods -n minikube-sample-namespace
+  192  kubectl apply -f 03-update-deployment.yaml
+  193  kubectl get all -n minikube-sample-namespace
+  194  watch  kubectl get pods -n minikube-sample-namespace
+  195  kubectl describe minikube-deployment-1 -n minikube-sample-namespace
+  196  kubectl describe deployment minikube-deployment-1 -n minikube-sample-namespace
+  197  history
+  198  clear
+  199  kubectl get deployment -n minikube-sample-namespace
+  200  kubectl delete deployment minikube-deployment-1
+  201  kubectl get deployment -n minikube-sample-namespace
+  202  kubectl deployment delete deployment minikube-deployment-1
+  203  kubectl delete deployment minikube-deployment-1 -n minikube-sample-namespace
+  204  kubectl get deployment -n minikube-sample-namespace
+  205  clear
+  206  kubectl get deployment -n minikube-sample-namespace
+  207  ls
+  208  kubectl apply -f 01-deployment.yaml
+  209  kubectl port-forward svc/minikube-service -n minikube-sample-namespace 8081:80 --address 0.0.0.0 &
+  210  ls
+  211  kubectl apply -f  03-update-deployment.yaml
+  212  ls
+  213  cat 01-deployment.yaml
+  214  cat 03-update-deployment.yaml
+  215  clear
+  216  ls
+  217  vim 03-update-deployment.yaml
+  218  cat 03-update-deployment.yaml
+  219  clear
+  220  history
+  221  kubectl delete deployment minikube-deployment-1 -n minikube-sample-namespace
+  222  clear
+  223  ls
+  224  cd Adv_k8s_practice
+  225  ls
+  226  cd aws-eks-devops-best-practices
+  227  ls
+  228  clear
+  229  ls
+  230  cd
+  231  cd Adv_k8s_practice
+  232  git clone https://github.com/pratiksha-design261/kubestarter.git
+  233  ls
+  234  cd  kubestarter
+  235  ls
+  236  cd examples
+  237  clear
+  238  ls
+  239  cd mysql
+  240  ls
+  241  vim namespace.yml
+  242  kubectl apply -f namespace.yml
+  243  kubectl apply --validate=true --dry-run=client -f namespace.yml
+  244  vim namespace.yml
+  245  cd
+  246  ls
+  247  cd Adv_k8s_practice
+  248  ls
+  249  cd aws-eks-devops-best-practices
+  250  ls
+  251  cd 01-deploy-sample-application
+  252  ls
+  253  cat namespace.yml
+  254  cd
+  255  cd Adv_k8s_practice/kubestarter/examples/mysql
+  256  clear
+  257  ls
+  258  vim  namespace.yml
+  259  kubectl apply -f namespace.yml
+  260  kubectl config set-context --current --namespace=default
+  261  kubectl apply -f namespace.yml
+  262  minikube status
+  263  minikube start
+  264  minikube status
+  265  clear
+  266  kubectl apply -f namespace.yml
+  267  kubectl get namespace
+  268  ls
+  269  mv deployment.yml deployment_sample.yml
+  270  kubectl config set-context --current --namespace=mysql-namespace
+  271  clear
+  272  s
+  273  ls
+  274  vim deployment_sample.yml
+  275  ls
+  276  rm  configMap.yml secrets.yml
+  277  ls
+  278  vim deployment_sample.yml
+  279  mv deployment_sample.yml deployment.yml
+  280  ls
+  281  vim secrets.yml
+  282  echo "root" | base64
+  283  echo "cm9vdAo=" | base64 --decode
+  284  ls
+  285  vim secrets.yml
+  286  ls
+  287  vim secrets.yml
+  288  vim configMap.yml
+  289  vim secrets.yml
+  290  ls
+  291  vim deployment.yml
+  292  echo "cm9vdAo=" | base64 -decode
+  293  echo "cm9vdAo=" | base64 --decode
+  294  cd /Adv_k8s_practice/kubestarter/examples/mysql
+  295  cd Adv_k8s_practice/kubestarter/examples/mysql
+  296  ls
+  297  cat secrets.yml
+  298  echo "cm9vdAo=" | base64 --decode
+  299  cat deployment.yml
+  300  kubectl logs mysql-deployment-d9d7bfb4-xwvw6
+  301  cd .
+  302  cd
+  303  clear
+  304  git clone https://github.com/pratiksha-design261/kubestarter.git
+  305  ls
+  306  cd kubestarter
+  307  ls
+  308  cd examples
+  309  ls
+  310  cd mysql
+  311  clear
+  312  ls
+  313  kubectl secrets.yml
+  314  kubectl apply -f secrets.yml
+  315  kubecl create namespace mysql
+  316  kubectl create namespace mysql
+  317  kubectl config set-context --current --namespace=mysql
+  318  ls
+  319  kubectl apply -f secrets.yml
+  320  kubectl apply -f configMap.yml
+  321  kubectl apply -f persistentVols.yml
+  322  cat secrets.yml
+  323  echo "dHJhaW53aXRoc2h1YmhhbQ==" | base64 --decode
+  324  echo "dHJhaW53aXRoc2h1YmhhbQ==" | base64 decode
+  325  kubectl apply -f deployment.yml
+  326  kubectl get pods
+  327  kubectl exec -it deployment.yml -- /bin/bash
+  328  kubectl exec -it mysql-7b5c4b59c7-5mxl8 -- /bin/bash
+  329  ls
+  330  cd kubestarter
+  331  ls
+  332  clear
+  333  ls
+  334  cd Adv_k8s_practice
+  335  ls
+  336  cd kubestarter
+  337  ls
+  338  cd examples
+  339  ls
+  340  cd mysql
+  341  clear
+  342  ls
+  343  rm persistentVols.yml
+  344  vim persistentVols.yml
+  345  ls /home/ubuntu/projects/mysql/volume
+  346  vim persistentVols.yml
+  347  vim deployment.yml
+  348  kubectl get secrets
+  349  start minicube
+  350  start minikube
+  351  minikube start
+  352  clear
+  353  ls
+  354  kubectl get secrets
+  355  history
+  356  clear
+  357  kubectl config set-context --current --namespace=mysql-namespace
+  358  kubectl get secrets
+  359  ls
+  360  kubectl apply -f secrets.yml
+  361  kubectl apply -f configMap.yml
+  362  vim configMap.yml
+  363  kubectl apply -f configMap.yml
+  364  kubectl apply -f persistentVols.yml
+  365  vim persistentVols.yml
+  366  kubectl apply -f persistentVols.yml
+  367  clear
+  368  kubectl get secrets
+  369  kubectl get configmaps
+  370  kubectl get persistentvolumes
+  371  kubectl get persistentvolumeclaims
+  372  ls
+  373  vim deployment.yml
+  374  kubectl apply -f deployment.yml
+  375  vim deployment.yml
+  376  kubectl apply -f deployment.yml
+  377  vim deployment.yml
+  378  kubectl apply -f deployment.yml
+  379  cat deployment.yml
+  380  vim deployment.yml
+  381  kubectl apply -f deployment.yml
+  382  cat deployment.yml
+  383  kubectl apply --verify=true --dry-run=client -f deployment.yml
+  384  kubectl apply --validate=true --dry-run=client -f deployment.yml
+  385  kubectl apply -f deployment.yml
+  386  vim deployment.yml
+  387  kubectl apply -f deployment.yml
+  388  vim deployment.yml
+  389  kubectl apply -f deployment.yml
+  390  vim deployment.yml
+  391  kubectl apply -f deployment.yml
+  392  docker container ps
+  393  kubectl get deployments
+  394  kubectl describe desployment mysql-deployment
+  395  kubectl describe deployment mysql-deployment
+  396  kubectl get pods
+  397  kubectl exec -it mysql-deployment-d9d7bfb4-xwvw6 -- /bin/bash
+  398  history
+  399  clear
+  400  ls
+  401  kubectl get deployment
+  402  cat deployment.yml
+  403  kubectl deployment rm mysql
+  404  kubectl delete deployment mysql
+  405  kubectl get deployments
+  406  kubectl config set-context --current namespace=mysql-namespace
+  407  kubectl get all --namespace=mysql-namespace
+  408  kubectl get namespace
+  409  kubectl delete namespace mysql
+  410  kubectl get all --namespace=mysql-namespace
+  411  kubectl config set-context --current namespace=mysql-namespace
+  412  kubectl config set-context --now namespace=mysql-namespace
+  413  kubectl config set-context --current --namespace=mysql-namespace
+  414  clear
+  415  kubectl get deployment
+  416  kubectl delete deployment mysql-deployment
+  417  kubectl get all --namespace=mysql-namespace
+  418  ls
+  419  vim secrets.yml
+  420  cat secrets.yml
+  421  vim secrets.yml
+  422  echo "cm9vdAo=" | base64 --decode
+  423  cat secrets.yml
+  424  ls
+  425  kubectl apply -f persistentVols.yml
+  426  kubectl apply -f secrets.yml
+  427  kubectl delete secret mysql-root-password-secret-file
+  428  kubectl apply -f secrets.yml
+  429  kubectl apply -f configMap.yml
+  430  kubectl apply -f deployment.yml
+  431  kubectl get pods
+  432  kubectl exec -it mysql-deployment-d9d7bfb4-lqmnl -- /bin/bash
+  433  kubectl delete namespace mysql-namespace
+  434  clear
+  435  kubectl get all --namespace=mysql-namespace
+  436  ls
+  437  mv  secrets.yml  My_secrets.yml
+  438  vim secrets.yml
+  439  echo "admin" | base64
+  440  vim secrets.yml
+  441  vim deployment.yml
+  442  clear
+  443  ls
+  444  cat secrets.yml
+  445  vim secrets.yml
+  446  kubectl get namespace
+  447  clear
+  448  ls
+  449  kubectl apply -f namespace.yml
+  450  kubectl apply -f secrets.yml
+  451  kubectl config set-context --current --namespace=mysql-namespace
+  452  kubectl apply -f secrets.yml
+  453  vim secrets.yml
+  454  kubectl apply -f secrets.yml
+  455  kubectl get secrets
+  456  cat secrets.yml
+  457  vim secrets.yml
+  458  kubectl apply -f secrets.yml
+  459  ls
+  460  kubectl apply -f configMap.yml
+  461  kubectl apply -f persistentVols.yml
+  462  kubectl get all
+  463  kubectl get pv
+  464  kubectl get pvc
+  465  ls
+  466  kubectl apply -f deployment.yml
+  467  kubectl get pvc
+  468  kubectl get pods
+  469  clear
+  470  kubectl get secret
+  471  kubectl get configMap
+  472  kubectl get pv
+  473  kubectl delete pv mysql-pv mysql-pv-volume
+  474  kubectl get pv
+  475  kubectl get pvc
+  476  kubectl delete pvc msql-pvc
+  477  kubectl get deployment
+  478  kubectl delete deployment mysql-deployment
+  479  kubectl get pod
+  480  clear
+  481  kubectl get secret
+  482  kubectl get configmap
+  483  ls
+  484  kubectl apply -f persistentVols.yml
+  485  kubectl get pv
+  486  kubectl get pvc
+  487  kubectl apply -f deployment.yml
+  488  kubectl get deployment
+  489  kubectl get pod
+  490  kubectl exec -it mysql-deployment-c689459f4-5ntnt -- /bin/bash
+  491  kubectl describe deployment mysql-deployment
+  492  kubectl exec -it mysql-deployment-c689459f4-5ntnt -- /bin/bash
+  493  kubectl exec -it mysql-deployment-c689459f4-5ntnt -- env | grep MYSQL_ROOT_PASSWORD
+  494  kubectl get deployment mysql-deployment -o yaml
+  495  kubectl get secret admin -o yaml
+  496  kubectl get secret YWRtaW4K -o yaml
+  497  echo "YWRtaW4K" | base64 --decode
+  498  kubectl logs mysql-deployment-c689459f4-5ntnt
+  499  kubectl exec -it mysql-deployment-c689459f4-5ntnt -- /bin/bash
+  500  clear
+  501  kubectl get secret
+  502  kubectl get secret mysql-secret -o yaml
+  503  ls
+  504  vim secrets.yml
+  505  vim deployment.yml
+  506  vim configMap.yml
+  507  kubectl get deployment mysql-deployment -o yaml
+  508  kubectl exec -it mysql-deployment-c689459f4-5ntnt -- env | grep MYSQL_ROOT_PASSWORD
+  509  kubectl exec -it mysql-deployment-c689459f4-5ntnt -- /bin/bash
+  510  kubectl create secret generic mysql-secret --from-literal=YWRtaW4K=dHJhaW53aXRoc2h1YmhhbQ== --dry-run=client -o yaml
+  511  cat secrets.yml
+  512  vim secrets.yml
+  513  kubectl apply -f secrets.yml
+  514  ls
+  515  kubectl apply -f deployment.yml
+  516  kubectl get deployment mysql-deployment -o yaml
+  517  kubectl exec -it mysql-deployment-c689459f4-5ntnt -- env | grep MYSQL_ROOT_PASSWORD
+  518  kubectl get secret
+  519  kubectl get secret mysql-secret -o yaml
+  520  kubectl get deployment
+  521  kubectl delete deployment mysql-deployment
+  522  ls
+  523  kubectl apply -f deployment.yml
+  524  kubectl get pods
+  525  kubectl get secretkubectl exec -it mysql-deployment-c689459f4-5ntnt -- env | grep MYSQL_ROOT_PASSWORD
+  526  kubectl exec -it mysql-deployment-c689459f4-5ntnt -- env | grep MYSQL_ROOT_PASSWORD
+  527  kubectl exec -it mysql-deployment-c689459f4-kszvp -- env | grep MYSQL_ROOT_PASSWORD
+  528  kubectl exec -it mysql-deployment-c689459f4-kszvp -- /bin/bash
+  529  clear
+  530  ls
+  531  cd kubestarter
+  532  ls
+  533  cd examples
+  534  ls
+  535  cd mysql
+  536  ls
+  537  cd
+  538  cd Adv_k8s_practice
+  539  ls
+  540  cd kubestarter
+  541  ls
+  542  cd examples
+  543  ls
+  544  cd mysql
+  545  ls
+  546  cat namespace.yml
+  547  cat secrets.yml
+  548  history
+  549  clear
+  550  kubectl get namespace
+  551  start minikube
+  552  minikube start
+  553  kubectl get namespace
+  554  kubectl config set-context --current --namespace=mysql-namespace
+  555  clear
+  556  kubectl get all
+  557  kubectl exec -it mysql-deployment-c689459f4-kszvp -- env | grep MYSQL_ROOT_PASSWORD
+  558  ls
+  559  cat deployment.yml
+  560  kubectl exec -it mysql-deployment-c689459f4-kszvp -- env | grep MYSQL_ROOT_PASSWORD
+  561  kubectl exec -it mysql-deployment-c689459f4-kszvp -- env | grep MYSQL_DATABASE
+  562  kubectl exec -it mysql-deployment-c689459f4-kszvp --  /bin/bash
+  563  kubectl exec -it mysql-deployment-c689459f4-kszvp -- env | grep localhost
+  564  ls
+  565  echo -n 'dHJhaW53aXRoc2h1YmhhbQ==' | base64
+  566  echo -n 'dHJhaW53aXRoc2h1YmhhbQ==' | base64 --decode
+  567  kubectl get all
+  568  kubectl delete secret mysql-secret
+  569  kubectl get configmap
+  570  kubectl delete configmap mysql-db-name-file
+  571  kubectl get deployment
+  572  kubectl delete deployment mysql-deployment
+  573  kubectl get deployment
+  574  kubectl get namespace
+  575  kubectl delete namespace mysql-namespace
+  576  clear
+  577  ls
+  578  vim secrets.yml
+  579  echo "pratiksha" | base64 --decode
+  580  echo "pratiksha" | base64
+  581  vim secrets.yml
+  582  vim  deployment.yml
+  583  ls
+  584  cat configMap.yml
+  585  cat persistentVols.yml
+  586  ls
+  587  clear
+  588  cd Adv_k8s_practice
+  589  ls
+  590  cd kubestarter
+  591  ls
+  592  cd Ingress
+  593  ls
+  594  rm nginx.yml ingress.yml apache.yml
+  595  ls
+  596  clear
+  597  vim namespace.yml
+  598  minikube start
+  599  kubectl apply -f vim namespace.yml
+  600  kubectl apply -h
+  601  kubectl apply -f vim namespace.yml
+  602  ls
+  603  kubectl apply -f namespace.yml
+  604  ls
+  605  kubctl config set-context --current --namespace=ingress-namespace
+  606  kubectl config set-context --current --namespace=ingress-namespace
+  607  clear
+  608  kubectl get all
+  609  ls
+  610  vim nginx_deployment.yml
+  611  kubectl apply -f nginx_deployment.yml
+  612  vim nginx_deployment.yml
+  613  kubectl apply -f nginx_deployment.yml
+  614  vim nginx_deployment.yml
+  615  kubectl apply -f nginx_deployment.yml
+  616  vim nginx_deployment.yml
+  617  kubectl apply -f nginx_deployment.yml
+  618  vim nginx_deployment.yml
+  619  kubectl apply -f nginx_deployment.yml
+  620  vim nginx_deployment.yml
+  621  kubectl apply -f nginx_deployment.yml
+  622  clear
+  623  ls
+  624  vim apache_deployment.yml
+  625  kubectl apply -f apache_deployment.yml
+  626  vim apache_deployment.yml
+  627  kubectl apply -f apache_deployment.yml
+  628  ls
+  629  vim ingress.yml
+  630  kubectl apply -f ingress.yml
+  631  vim ingress.yml
+  632  kubectl apply -f ingress.yml
+  633  cat ingress.yml
+  634  vim ingress.yml
+  635  kubectl apply -f ingress.yml
+  636  vim ingress.yml
+  637  kubectl apply -f ingress.yml
+  638  vim ingress.yml
+  639  kubectl apply -f ingress.yml
+  640  ls
+  641  cat ingress.yml
+  642  vim ingress.yml
+  643  kubectl apply -f ingress.yml
+  644  kubectl get service
+  645  vim ingress.yml
+  646  kubectl apply -f ingress.yml
+  647  clear
+  648  kubectl get all
+  649  kubectl port-forword svc/apache-service 8082:80 --address 0.0.0.0 &
+  650  yes
+  651  kubectl port-forward svc/apache-service 8082:80 --address 0.0.0.0 &
+  652  kubectl port-forward svc/nginx-service 8083:80 --address 0.0.0.0 &
+  653  minikube addons enable ingress
+  654  kubectl apply -f ingress.yaml
+  655  ls
+  656  kubectl apply -f ingress.yml
+  657  cat ingress.yml
+  658  curl http://pratiksha.com/apache
+  659  minikube ip
+  660  sudo vim /etc/hosts
+  661  curl http://pratiksha.com/apache
+  662  curl http://pratiksha.com/nginx
+  663  curl http://pratiksha.com
+  664  history
+  665  clear
+  666  kubectl get pods
+  667  kubectl get hpa
+  668  kubectl get all
+  669  kubectl get hpa -w
+  670  watch get hpa
+  671  clear
+  672  minikube start
+  673  minikube stus
+  674  minikube status
+  675  clear
+  676  ls
+  677  cd Adv_k8s_practice
+  678  ls
+  679  cd HPA
+  680  ls
+  681  clear
+  682  vim namespace.yml
+  683  kubectl apply -f namespace.yml
+  684  vim namespace.yml
+  685  kubectl apply -f namespace.yml
+  686  kubectl config set-context --current --namespace=hpa-namespace
+  687  ls
+  688  vim apache-deployment.yml
+  689  kubectl apply -f apache-deployment.yml
+  690  vim apache-deployment.yml
+  691  kubectl apply -f apache-deployment.yml
+  692  vim apache-deployment.yml
+  693  kubectl apply -f apache-deployment.yml
+  694  kubectl apply validate=tru dry-run=client --filename=apache-deployment.yml
+  695  kubectl apply -h
+  696  kubectl apply --validate=tru --dry-run=client --filename=apache-deployment.yml
+  697  kubectl apply --validate=true --dry-run=client --filename=apache-deployment.yml
+  698  vim apache-deployment.yml
+  699  cat apache-deployment.yml
+  700  vim apache-deployment.yml
+  701  kubectl apply --validate=true --dry-run=client --filename=apache-deployment.yml
+  702  kubectl apply -f apache-deployment.yml
+  703  vim apache-deployment.yml
+  704  kubectl apply -f apache-deployment.yml
+  705  clear
+  706  kubectl get all
+  707  kubectl scale deployment apache-hpa-deployment --replica=2
+  708  kubectl scale deployment apache-hpa-deployment --replicas=2
+  709  kubectl get all
+  710  kubectl scale deployment apache-hpa-deployment --replicas=1
+  711  kubectl get all
+  712  kubectl port-forward svc/apache-hpa-service 8081:80 0.0.0.0 $
+  713  kubectl port-forward svc/apache-hpa-service 8081:80 0.0.0.0 &
+  714  kubectl port-forward svc/apache-hpa-service 8081:80 --address 0.0.0.0 &
+  715  minikube addons enable merics-server
+  716  minikube addons enable metrics-server
+  717  clear
+  718  ls
+  719  vim apache-deployment.yml
+  720  vim apache-hpa.yml
+  721  kubectl apply --validate=true --dry-run=client -f apache-hpa.yml
+  722  kubectl get all
+  723  kubectl apply --validate=true --dry-run=client -f apache-hpa.yml
+  724  ls
+  725  kubectl apply --validate=true --dry-run=client -filename=apache-hpa.yml
+  726  kubectl apply --validate=true --dry-run=client --filename=apache-hpa.yml
+  727  clear
+  728  kubectl apply --validate=true --dry-run=client --filename=apache-hpa.yml
+  729  vim apache-hpa.yml
+  730  kubectl apply --validate=true --dry-run=client --filename=apache-hpa.yml
+  731  kubectl apply -f apache-hpa.yml
+  732  kubectl port-forward svc/apache-hpa-service 8081:80 --address 0.0.0.0 &
+  733  kubectl port-forward svc/apache-hpa-service 8082:80 --address 0.0.0.0 &
+  734  while true; do wget -q -0- http://3.145.146.191:8082/; done
+  735  while true; do wget -q -O - http://3.145.146.191:8082/; done
+  736  history
+  737  lsof -i:8082
+  738  kill -g 16189
+  739  kill -16189
+  740  lsof -i:8082
+  741  ps -o pid,pgid,command
+  742  kill -1290
+  743  kill -11986
+  744  ps -o pid,pgid,command
+  745  kill -9 11986
+  746  kill -9 16189
+  747  ps -o pid,pgid,comand
+  748  clear
+  749  watch kubectl get hpa
+  750  clear
+  751  minikube start
+  752  clear
+  753  curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+  754  sudo apt-get install apt-transport-https --yes
+  755  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+  756  sudo apt-get update
+  757  sudo apt-get install helm
+  758  helm
+  759  helm version
+  760  clear
+  761  helm create django-notes-app
+  762  ls
+  763  cd django-notes-app
+  764  ls
+  765  cd templates
+  766  ls
+  767  vim deployment.yaml
+  768  cd ..
+  769  ls
+  770  vim Chart.yaml
+  771  vim  values.yaml
+  772  helm package django-notes-app/
+  773  cd
+  774  helm package django-notes-app/
+  775  ls
+  776  vim  django-notes-app\values.yaml
+  777  helm install my-two-tier-app
+  778  helm install my-two-tier-app ./django-notes-app
+  779  kubectl get all
+  780  kubectl get my-two-tier-app-django-notes-app-86d59ff69d-6lhcp
+  781  kubectl logs my-two-tier-app-django-notes-app-86d59ff69d-6lhcp
+  782  git clone git@github.com:pratiksha-design261/two-tier-flask-app_project.git
+  783  git clone https://github.com/pratiksha-design261/two-tier-flask-app_project.git
+  784  helm install my-two-tier-app ./django-notes-app
+  785  helm install my-two-tier-app ./django-notes-app-test1
+  786  ls
+  787  cd two-tier-flask-app_project
+  788  ls
+  789  create
+  790  helm create 2tier-app-with-helm
+  791  ls
+  792  clear
+  793  ls
+  794  cd
+  795  kubectl get all
+  796  kubectl logs /my-two-tier-app-django-notes-app-86d59ff69d-6lhcp
+  797  kubectl logs my-two-tier-app-django-notes-app-86d59ff69d-6lhcp
+  798  Flask>=2.0
+  799  clear
+  800  ls
+  801  cd django-notes-app
+  802  ls
+  803  vim values.yaml
+  804  rmi -f django-notes-app-0.1.0.tgz
+  805  rm -f django-notes-app-0.1.0.tgz
+  806  ls
+  807  cd
+  808  helm package django-notes-app
+  809  ls
+  810  helm install my-notes-app-test2 ./django-notes-app
+  811  kubectl get all
+  812  kubectl port-forward service/my-notes-app-test2-django-notes-app 8083:8000 &
+  813  kubectl port-forward service/my-notes-app-test2-django-notes-app 8083:8000 --address 0.0.0.0 &
+  814  kubectl port-forward service/my-notes-app-test2-django-notes-app 8081:8000 --address 0.0.0.0 &
+  815  history
+  816  minikube start
+  817  ls
+  818  clear
+  819  ls
+  820  cd
+  821  cd Adv_k8s_practice
+  822  ls
+  823  cd RBAC
+  824  ls
+  825  kubectl auth whoami
+  826  kubectl create namespace apache-namespace
+  827  kubectl apply -f apache-deployment.yml
+  828  kubectl get all
+  829  kubectl get all -n apache-namespace
+  830  kubectl config set-context --current --namespace=apache-namespace
+  831  clear
+  832  ls
+  833  kubectl get all
+  834  vim apache-role.yml
+  835  kubectl apply -f apache-role.yml
+  836  kubectl describe role apache-manager
+  837  kubectl whoami
+  838  history
+  839  kubectl auth whoami
+  840  clear
+  841  kubectl auth whoami
+  842  ls
+  843  vim apache-rolebinding.yml
+  844  kubectl apply -f  apache-rolebinding.yml
+  845  vim apache-rolebinding.yml
+  846  kubectl apply -f  apache-rolebinding.yml
+  847  history
+  848  clear
+  849  ls
+  850  kubectl auth whoami
+  851  kubectl auth can-i get deployment --as=minikube-user
+  852  kubectl auth can-i get pods --as=minikube-user
+  853  kubectl auth can-i create pods --as=minikube-user
+  854  kubectl delete apache-deployment
+  855  kubectl get deployment
+  856  kubectl delete deployment apache-deployment
+  857  kubectl apply -f apache-deployment.yml
+  858  kubectl auth can-i create deployment --as=system:serviceaccount:apache-namespace:apache-user
+  859  ls
+  860  vim apache-serviceaccount.yml
+  861  kubectl apply -f apache-serviceaccount.yml
+  862  cp apache-role.yml apache-sa-role.yml
+  863  ls
+  864  vim apache-sa-role.yml
+  865  cp apache-rolebinding.yml apache-sa-rolebinding.yml
+  866  ls
+  867  vim apache-sa-rolebinding.yml
+  868  kubectl apply -f apache-sa-role.yml
+  869  kubectl apply -f apache-sa-rolebinding.yml
+  870  vim apache-sa-rolebinding.yml
+  871  kubectl apply -f apache-sa-rolebinding.yml
+  872  vim apache-sa-rolebinding.yml
+  873  kubectl apply -f apache-sa-rolebinding.yml
+  874  vim apache-sa-rolebinding.yml
+  875  kubectl apply -f apache-sa-rolebinding.yml
+  876  kubectl auth can-i create deployment --as=system:serviceaccount:apache-namespace:apache-sa-user
+  877  history
